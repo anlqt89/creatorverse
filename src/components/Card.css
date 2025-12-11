@@ -1,0 +1,15 @@
+.creator-card{
+    flex: 1 1 calc(50% - 20px);
+    background-color: white;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+.name button-group{
+    color: blue;
+}
