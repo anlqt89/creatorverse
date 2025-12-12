@@ -37,7 +37,7 @@ function AddCreator(){
         } else {
           alert("Creator added!");
           console.error("Creator added: ", newCreator);
-          navigate("/ViewCreator"); 
+          navigate("/ViewCreator/"); 
         }
     }
 
@@ -58,7 +58,7 @@ function AddCreator(){
                 <div className="creator-form-group">
                     <label>Description</label>
                     <p>Provide a description of the creator. Who are they? What makes them interesting?</p>
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4} />
+                    <textarea onChange={(e) => setDescription(e.target.value)} rows={4} />
                 </div>
                 <div className="creator-form-group">
                     <h3>Social Media Links</h3>

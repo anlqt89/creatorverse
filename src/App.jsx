@@ -5,6 +5,7 @@ import ShowCreators from './pages/ShowCreators';
 import AddCreator from './pages/AddCreator';
 import EditCreator from './pages/EditCreator';
 import ViewCreator from './pages/ViewCreator';
+import '@picocss/pico/css/pico.min.css';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -12,7 +13,7 @@ function App() {
     <Routes>
         <Route path="/" element={<ShowCreators />} />
         <Route path="/AddCreator" element={<AddCreator/>}></Route>
-        <Route path="/EditCreator" element={<EditCreator/>}></Route>
+        <Route path="/EditCreator/:id" element={<EditCreator/>}></Route>
         <Route path="/viewCreator/:id" element={<ViewCreator />} />
     </Routes>
   )

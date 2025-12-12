@@ -12,7 +12,9 @@ export const Card = ({id, name, url, description, imageURL, youtube, twitter, in
                     <button className="view-creator" onClick={()=>{
                         navigate(`/viewCreator/${id}`)
                     }}>View</button>
-                    <button className="edit-creator">Edit</button>
+                    <button className="edit-creator" onClick={()=>{
+                        navigate(`/editCreator/${id}`)
+                    }}>Edit</button>
                 </div>
             </section>
             <section className="social-medias">
