@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import '@picocss/pico/css/pico.min.css';
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 import ShowCreators from './pages/ShowCreators';
 import AddCreator from './pages/AddCreator';
 import EditCreator from './pages/EditCreator';
 import ViewCreator from './pages/ViewCreator';
-import '@picocss/pico/css/pico.min.css';
+
 function App() {
   const [count, setCount] = useState(0)
 

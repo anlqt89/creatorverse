@@ -1,33 +1,77 @@
-.view-creator{
+.view-creator-full{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 20px;
+  border-radius: 20px;
+  background-color: black;
+  height: 100vw;
+}
+.section-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
     background-color: black;
     padding: 20px;
-    min-height: 100vh;
+    width: 80%;
 }
 
 .info {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    background: #0f1624;
     padding: 40px;
     border-radius: 14px;
+    max-width: 800px;
   }
   
   .info img {
-    width: 320px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     object-fit: cover;
     border-radius: 12px;
-    border: 2px solid #3a4d63;
+    border: 4px solid var(--primary);
   }
 
   .info-detail-container{
     display: flex;
     gap: 10px;
     flex-direction: column;
-    width: 70%;
+    width: fit-content;
+    
   }
+.image-container{
+  min-width: 350px;
+}
+  .info-detail-container h2{
+    letter-spacing: -0.3px;
+    font-size: 40px;
+    color: var(--primary);
+    text-transform: capitalize;
+  }
+
+.info-detail-container a{
+    color: white;
+}
+.info-detail-containe a :hover{
+    color: var(--primary);
+}
+
+.view-button-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 45%;
+}
+.view-button-group button{
+  flex-basis: calc(50% - 10px);
+  border: 1px solid black;
+}
+.view-button-group button:hover{
+  border: 1px solid white;
+}
+
+.view-button-group .delete-button{
+  background-color: #DC143C;
+}

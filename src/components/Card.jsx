@@ -1,36 +1,47 @@
 import { useNavigate } from "react-router-dom"
 import "./Card.css"
-
+import { FaInfoCircle, 
+    FaEdit, 
+    FaInstagram, 
+    FaTwitter, 
+    FaYoutube } from 'react-icons/fa';
 export const Card = ({id, name, url, description, imageURL, youtube, twitter, instagram}) => {
     const navigate = useNavigate();
 
     return(
-        <div className="creator-card" style={{ backgroundImage: `url(${imageURL})` }}>
+        <div className="creator-card" 
+            style={{ 
+                backgroundImage:  `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${imageURL || "../assets/profile.jpg"})` 
+            }}
+        >
             <section className="name">
                 <label>{name}</label>
                 <div className="button-group">
-                    <button className="view-creator" onClick={()=>{
+                    <button className="icon-btn" 
+                        title="View"
+                        onClick={()=>{
                         navigate(`/viewCreator/${id}`)
-                    }}>View</button>
-                    <button className="edit-creator" onClick={()=>{
+
+                    }}><FaInfoCircle size={25} /></button>
+                    <button className="icon-btn" onClick={()=>{
                         navigate(`/editCreator/${id}`)
-                    }}>Edit</button>
+                    }}><FaEdit size={25} /></button>
                 </div>
             </section>
             <section className="social-medias">
                 {youtube && (
                 <a href={`https://www.youtube.com/@${youtube}`} >
-                    YouTube
+                     <FaYoutube size={30}></FaYoutube>
                 </a>
                 )}
                 {twitter && (
                 <a href={`https://x.com/${twitter}`} >
-                    X
+                    <FaTwitter size={30}></FaTwitter>
                 </a>
                 )}
                 {instagram && (
                 <a href={`https://www.instagram.com/${instagram}`} >
-                    instagram
+                    <FaInstagram size={30}></FaInstagram>
                 </a>
                 )}
             </section>

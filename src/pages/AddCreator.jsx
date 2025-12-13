@@ -37,7 +37,7 @@ function AddCreator(){
         } else {
           alert("Creator added!");
           console.error("Creator added: ", newCreator);
-          navigate("/ViewCreator/"); 
+          navigate("/"); 
         }
     }
 
@@ -45,15 +45,15 @@ function AddCreator(){
         <>
           <Header></Header>
           <div className="content" id="add-creator">
-             <form onSubmit={handleSubmit}>
+             <form className="modify-creator-form" onSubmit={handleSubmit}>
                 <div className="creator-form-group">
-                    <label>Name</label>
-                    <input type="text" onChange={(e) => {setName(e.target.value); setUrl("http://localhost:5173/" + e.target.value)}} required /> 
+                    <label htmlFor="name">Name</label>
+                    <input id="name" autoComplete="name" type="text" onChange={(e) => {setName(e.target.value); setUrl("http://localhost:5173/" + e.target.value)}} required /> 
                 </div>
                 <div className="creator-form-group">
-                    <label>Imamge</label>
+                    <label htmlFor="image">Image</label>
                     <p>Provide a link to an image of your creator. Be sure to include the http://</p>
-                    <input type="text" onChange={(e) => setImage(e.target.value)} /> 
+                    <input id="image" autoComplete="image" type="text" onChange={(e) => setImage(e.target.value)} /> 
                 </div>
                 <div className="creator-form-group">
                     <label>Description</label>

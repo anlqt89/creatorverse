@@ -4,6 +4,12 @@ import defaultProfile from "../assets/profile.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 import "./ViewCreator.css"
 import Popup from "../components/Popup";
+import {
+    FaExclamationTriangle,
+    FaInstagram, 
+    FaTwitter, 
+    FaYoutube } from 'react-icons/fa';
+
 function ViewCreator(){ 
     const [showPopup, setShowPopup] = useState(false);
     const [name, setName] = useState("");
@@ -30,13 +36,15 @@ function ViewCreator(){
             console.log("Fail to get creator");
             
         }else{
+            console.log("Successfully get creator", data)
             setName(data.name);
-            setImageUrl(data.imageUrl);
+            setImageUrl(data.imageURL);
             setUrl(data.url);
             setDescription(data.description);
             setYoutube(data.youtube);
             setTwitter(data.twitter);
             setInstagram(data.instagram);
+
         }
     }
     const handleDelete = async (e)=>{
@@ -44,7 +52,7 @@ function ViewCreator(){
         const {data, error} = await supabase.from("creators").delete().eq("id", parseInt(id.trim()));
         if (error) console.log("Fail to delete creator")
         else{
-            console.log("Successfully delete creator")
+            console.log("Successfully delete creator", data)
             setShowPopup(false);
             navigate("/");
         }
@@ -58,38 +66,39 @@ function ViewCreator(){
                         <img src={imageUrl || defaultProfile} alt="creator" />
                     </div>
                     <div className="info-detail-container">
-                        <label>{name}</label>
+                        <h2>{name}</h2>
                         <p>{description}</p>
                         {youtube && (
                         <a href={`https://www.youtube.com/@${youtube}`} >
-                            YouTube
+                             <FaYoutube size={20}></FaYoutube> {youtube}
                         </a>
                         )}
                         {twitter && (
                         <a href={`https://x.com/${twitter}`} >
-                            X
+                             <FaTwitter size={30}></FaTwitter> {twitter}
                         </a>
                         )}
                         {instagram && (
                         <a href={`https://www.instagram.com/${instagram}`} >
-                            instagram
+                             <FaInstagram size={30}></FaInstagram> {instagram}
                         </a>
                         
                         )}
                     </div>
                 </section>
-                <section className="button-group">
-                    <button onClick={()=> navigate(`/editNavigate/${id}`)}>Update</button>
-                    <button onClick = { () => {
+                <section className="view-button-group">
+                    <button onClick={()=> navigate(`/editCreator/${id}`)}>Update</button>
+                    <button className="delete-button" onClick = { () => {
                             setShowPopup(true);
                         }
                     }>Delete</button>
-                    <Popup open={showPopup} onClose={() => setShowPopup(false)}>
-                        <h2>WAIT!!!!</h2>
-                        <p>Are you sure you want to Delete {name}???</p>
-                        <button type="button" onClick={()=> setShowPopup(false)}>NAH, NEVER MIND</button>
-                        <button type="button" onClick={handleDelete}>YES!TOTALLY SURE</button>
+                    <Popup className="popup" open={showPopup} onClose={() => setShowPopup(false)}>
+                        <h2><FaExclamationTriangle className="warning-icon" size={50} /> WAIT!!!! <FaExclamationTriangle className="warning-icon" size={50} /></h2>
+                        <p>Are you sure you want to delete {name}???</p>
+                        <button className="pop-cancel-button" type="button" onClick={()=> setShowPopup(false)}>NAH, NEVER MIND</button>
+                        <button className="pop-delete-button" type="button" onClick={handleDelete}>YES!TOTALLY SURE</button>
                     </Popup>
+                   
                 </section>
                 </div>
             </div>

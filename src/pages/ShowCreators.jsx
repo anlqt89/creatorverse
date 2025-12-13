@@ -23,20 +23,22 @@ function ShowCreators(){
     return(
     <>
         <Header></Header>
-        <div className="card-container">
-            {creators.length == 0 && <p>No Creator yet</p>}
-            {creators.map((creator) => (
-                <Card 
-                key={creator.id}
-                id={creator.id}
-                name={creator.name}
-                url={creator.url}
-                description={creator.description}
-                imageURL={creator.imageURL}
-                youtube={creator.youtube}
-                twitter={creator.twitter}
-                instagram={creator.instagram}></Card>
-            ))}
+        <div className="bottom-container">
+            <div className="card-container">
+                {creators.length == 0 && <p>No Creator yet</p>}
+                {creators.map((creator) => (
+                    <Card 
+                    key={creator.id}
+                    id={creator.id}
+                    name={creator.name}
+                    url={creator.url}
+                    description={creator.description}
+                    imageURL={creator.imageURL}
+                    youtube={creator.youtube}
+                    twitter={creator.twitter}
+                    instagram={creator.instagram}></Card>
+                ))}
+            </div>
         </div>
     </>)
 }

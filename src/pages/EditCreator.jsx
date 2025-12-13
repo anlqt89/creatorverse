@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import Popup from "../components/Popup";
-
+import {FaExclamationTriangle // <-- Add this icon here
+} from 'react-icons/fa';
 function EditCreator(){
     //Get ID from params:
     const {id} = useParams();
@@ -81,7 +82,7 @@ function EditCreator(){
         <>
           <Header></Header>
           <div className="content" id="add-creator">
-             <form onSubmit={handleSubmit}>
+             <form className="modify-creator-form" onSubmit={handleSubmit}>
                 <div className="creator-form-group">
                     <label>Name</label>
                     <input type="text" value={name} onChange={(e) => {setName(e.target.value); setUrl("http://localhost:5173/" + e.target.value)}} required /> 
@@ -116,16 +117,18 @@ function EditCreator(){
                     <input type="text" value={instagram} onChange={(e) => setInstagram(e.target.value)}  /> 
                 </div>
                 <div className="creator-form-group">
-                    <button type="submit" >Submit</button>
-                    <button type="button" onClick={() =>{
-                        setShowPopup(true);
-                    }}>Delete</button>
-                    <Popup open={showPopup} onClose={() => setShowPopup(false)}>
-                        <h2>WAIT!!!!</h2>
-                        <p>Are you sure you want to Delete {name}???</p>
-                        <button type="button" onClick={()=> setShowPopup(false)}>NAH, NEVER MIND</button>
-                        <button type="button" onClick={handleDelete}>YES!TOTALLY SURE</button>
-                    </Popup>
+                    <div className="edit-button-group">
+                        <button type="submit" >Submit</button>
+                        <button className="delete-button" type="button" onClick={() =>{
+                            setShowPopup(true);
+                        }}>Delete</button>
+                        <Popup className="popup" open={showPopup} onClose={() => setShowPopup(false)}>
+                            <h2><FaExclamationTriangle className="warning-icon" size={50} /> WAIT!!!! <FaExclamationTriangle className="warning-icon" size={50} /></h2>
+                            <p>Are you sure you want to delete {name}???</p>
+                            <button className="pop-cancel-button" type="button" onClick={()=> setShowPopup(false)}>NAH, NEVER MIND</button>
+                            <button className="pop-delete-button" type="button" onClick={handleDelete}>YES!TOTALLY SURE</button>
+                        </Popup>
+                    </div>
                 </div>
             </form>
           </div>

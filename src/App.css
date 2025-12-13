@@ -1,9 +1,80 @@
+:root {
+  --primary: rgb(81, 133, 180);
+  --pico-font-family: "Poppins", "Sono", sans-serif;
+
+  --pico-font-weight-h1: 700;
+  --pico-font-weight-h2: 600;
+  --pico-font-weight-h3: 500;
+  --pico-font-weight-h4: 500;
+  --pico-font-weight-h5: 400;
+  --pico-font-weight-h6: 400;
+
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1em;
+  font-family: "Sono";
+  font-size: 8vw;
+  --typography-spacing-vertical: 3rem;
+}
+
+h2 {
+  font-weight: 600;
+
+}
+
+h3 {
+  font-weight: 500;
+}
+
+h4 {
+  font-weight: 500;
+}
+
+h5, h6 {
+  font-weight: 400;
+}
+
+form label{
+  margin-bottom: 0.1rem;
+  font-weight: 300;
+  font-size: 20px;
+  font-style: normal;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  opacity: 1 ;
+}
+
+form p{
+  font-size: 0.8em;
+  font-weight: 50;
+  font-style: italic;
+  padding-bottom: 10px;
+}
+
+form h3{
+  font-size: 18px;
+  color: var(--primary);
+}
+button{
+  font-size: 20px;
+  font-family: "Poppins";
+  font-weight: 700;
+  color: white;
+  background-color: var(--primary);
+}
+
+
 .content{
   height: 100vh;
   display: flex;
   justify-content: center;
   background-color: black;
   color: white;
+  padding-top: 70px;
 }
 
 .creator-form-group{
@@ -11,11 +82,39 @@
   flex-direction: column;
 }
 
-.creator-form-group input{
-  height: 40px;
-}
-
 .creator-form-group textarea{
-  height: 80px;
+  height: 120px;
+  background-color: white;
+  color: black;
 }
 
+.modify-creator-form{
+  width: 50%;
+}
+
+input{
+  height: 70px;
+  background-color: white;
+  color: black;
+}
+.edit-button-group{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.edit-button-group button{
+  flex-basis: calc(50% - 10px);
+  border: 1px solid black;
+}
+.edit-button-group button:hover{
+  border: 1px solid white;
+}
+
+.edit-button-group .delete-button{
+  background-color: #DC143C;
+}
+
+.warning-icon {
+  color: #FFC107; 
+  size: 20px;
+}
