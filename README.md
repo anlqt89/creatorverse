@@ -28,10 +28,9 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] List anything else that you added to improve the site's functionality!
-- [x] Responsive for small window size, which showing one creator card instead of two
-- [x] Hover style for buttons
-- [x] Use React icons for edit button, view button, and social media icons  
+* [x] Responsive for small window size, which showing one creator card instead of two
+* [x] Hover style for buttons
+* [x] Use React icons for edit button, view button, and social media icons  
 
 ## Video Walkthrough
 
